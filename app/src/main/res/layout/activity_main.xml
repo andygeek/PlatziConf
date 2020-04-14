@@ -2,7 +2,9 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -27,6 +29,17 @@
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
+        <fragment
+            android:id="@+id/fragContent"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/bnvMenu"
+            app:navGraph="@navigation/nav_graph"
+            app:defaultNavHost="true" />
+
+
+
         <!--Esta ultima p[ropiedad nos permite que los elementos se adecuen al limite del tulvar que hemos creado (INVESTIGFAR MAS)-->
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bnvMenu"
@@ -36,6 +49,5 @@
             app:menu="@menu/bnv_menu"/>
 
     </RelativeLayout>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
